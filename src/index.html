@@ -6,6 +6,33 @@
     <title>Painterest</title>
 </head>
 <body>
-    <h1>Painterest!!!</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <button class="nav-link btn btn-danger" id="navbar-logout-button">Logout!</button>
+              <div id="auth">loged in</div>
+            </li>
+          </ul>
+        </div>
+    </nav>    
+    <!-- <button class="btn btn-outline-warning"><i class="fas fa-baby"></i></button> -->
+
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div id="pinCard">Nice Pin Card Here Yay!!</div>
+            <div id="board" class="hide">That Board Saved by y user!!!</div>
+        </div>
+        <div class="col-md-4">
+            <div id="single-pin" class="hide">Single desciption pin show only when you click on that pinCard!!!</div>
+        </div>
+    </div>
 </body>
 </html>
