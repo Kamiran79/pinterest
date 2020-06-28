@@ -1,14 +1,12 @@
 {
   "pin1": {
-    "pin_id": "1",
-    "pinTitle": "Chair",
+    "pinTitle": "Chair1",
     "category": "Furniture",
     "description": "This is very expensive and high end chair",
     "imgURL": "https://secure.img1-fg.wfcdn.com/im/47262906/resize-h800%5Ecompr-r85/4832/48323005/Bullsbrook+Armchair.jpg",
     "pinURL": "https://www.wayfair.com/George-Oliver--Bullsbrook-Armchair-HPMW2729-L54-K~GOLV1618.html?refid=GX434570080537-GOLV1618&device=c&ptid=905065323111&network=g&targetid=pla-905065323111&channel=GooglePLA&ireid=48323005&fdid=1817&PiID%5B%5D=22481965&campaignid=398251723&gclid=Cj0KCQjw3Nv3BRC8ARIsAPh8hgLZ2ouJctHzypysLjtjTlMXhUjQDDxHVNJrqqUfQytCxp0SLSLoaM8aAlkqEALw_wcB"
   },
   "pin2": {
-    "pin_id": "2",
     "pinTitle": "Chair2",
     "category": "Furniture",
     "description": "This is very cheap and high end chair",

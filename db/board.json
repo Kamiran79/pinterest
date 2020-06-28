@@ -1,26 +1,26 @@
 {
   "board1": {
-    "board_id": "1",
     "uid": "g9mafEXLpiNQ83gs1hqE7DQMnRv1",
-    "pin_id":"1",
-    "boardTitle":"board title goes here"
+    "pinId": "pin1",
+    "boardTitle": "board title goes here",
+    "boardId": "board1"
   },
   "board2": {
-    "board_id": "1",
     "uid": "g9mafEXLpiNQ83gs1hqE7DQMnRv1",
-    "pin_id":"2",
-    "boardTitle":"board title goes here"
+    "pinId": "pin2",
+    "boardTitle": "board title goes here",
+    "boardId": "board2"
   },
   "board3": {
-    "board_id": "2",
     "uid": "7333717",
-    "pin_id":"1",
-    "boardTitle":"board title goes here"
+    "pinId": "pin2",
+    "boardTitle": "board title goes here",
+    "boardId": "board1"
   },
   "board4": {
-    "board_id": "3",
     "uid": "84444818",
-    "pin_id":"1",
-    "boardTitle":"board title goes here"
+    "pinId": "pin1",
+    "boardTitle": "board title goes here",
+    "boardId": "board1"
   }    
 }
