@@ -6,9 +6,11 @@ import secureAuth from './components/auth/secureLogin';
 import logoutAuth from './components/auth/logout';
 
 import '../styles/main.scss';
+// import pinList from './components/pinList/pinList';
 
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseConfig);
+  // pinList.buildPinCards();
   secureAuth.checkLoginStatus();
   loginAuth.loginButton();
   logoutAuth.logoutEvent();

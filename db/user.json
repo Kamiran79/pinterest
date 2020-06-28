@@ -1,22 +1,27 @@
 {
   "user1": {
     "uid": "g9mafEXLpiNQ83gs1hqE7DQMnRv1",
-    "name": "Kamiran"
+    "name": "Kamiran",
+    "age": "30"
   },
   "user2": {
     "uid": "7333717",
-    "name": "Nikhil"
+    "name": "Nikhil",
+    "age": "31"    
   },
   "user3": {
     "uid": "84444818",
-    "name": "Geno"
+    "name": "Geno",
+    "age": "45"    
   },
   "user4": {
     "uid": "622616",
-    "name": "Shawn Garrison"
+    "name": "Shawn Garrison",
+    "age": "26"    
   },  
   "user5": {
     "uid": "955555919",
-    "name": "newUser"
+    "name": "newUser",
+    "age": "100"    
   }      
 }
