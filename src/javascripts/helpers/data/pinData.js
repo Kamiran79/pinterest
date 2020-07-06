@@ -18,6 +18,7 @@ const getPinCards = () => new Promise((resolve, reject) => {
     })
     .catch((err) => reject(err));
 });
+
 // getting my pins for my single board selected!!
 const getMyPinsByBoardId = (boardId) => new Promise((reslove, reject) => {
   axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
@@ -34,4 +35,6 @@ const getMyPinsByBoardId = (boardId) => new Promise((reslove, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPinCards, getMyPinsByBoardId };
+const deletePin = (pinId) => axios.delete(`${baseUrl}/pins/${pinId}.json`);
+
+export default { getPinCards, getMyPinsByBoardId, deletePin };

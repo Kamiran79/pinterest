@@ -1,11 +1,11 @@
 const boardMaker = (boardWithPins) => {
-  console.warn(boardWithPins);
+  console.warn(boardWithPins.id);
   boardWithPins.forEach((board) => {
     console.warn('this is the boardsWithPins ', board.boardId);
   });
   let domString = `
     <div class="col-3">
-      <div class="card myco-card border-0 rounded-2 primary" id=${boardWithPins.id}>
+      <div class="card myco-card border-0 rounded-2 primary" style="width: 18rem;" id=${boardWithPins.id}>
         <div class="row-cols-3">
   `;
   for (let i = 0; i < boardWithPins.length; i += 1) {
@@ -37,13 +37,15 @@ const boardMaker = (boardWithPins) => {
         <div class="card-body">
           <h5 class="card-title">${boardWithPins.boardTitle}</h5>
           <p class="card-text">Pins: ${boardWithPins.length}</p>
-          <div id="btnDeleteBoard"><i class="fas fa-trash-alt"></i></div>
+          </br>
+          <button id="btnDeleteBoard" class="btn btn-danger delete-board btnDeleteBoard1"><i class="fas fa-trash-alt"></i></button>
+          <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
         </div>
       </div>
     </div>
   `;
-  console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
-  console.warn('get the length of array pins ', boardWithPins.length);
+  // console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
+  // console.warn('get the length of array pins ', boardWithPins.length);
   // utils.printToDom('#boardWithPins', domString);
   return domString;
   // })

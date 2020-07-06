@@ -50,22 +50,10 @@ body {
   -webkit-filter: none;
   filter: none;
   }
-
   .card-img-top {
-    width: 92px;        
+    width: 90px;
+    height: 20vh;    
     object-fit: cover;
     object-position: top;
     margin-bottom: 2px;
-}
-
-#btnDeleteBoard {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  color: gray;
-  border-radius: 20px;
-}
-
-#btnDeleteBoard:hover {
-  color: red;
 }
