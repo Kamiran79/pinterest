@@ -16,6 +16,7 @@ const removeBoardEvent = (e) => {
     .then(() => {
     })
     .catch((err) => console.error('could not delete board ', err));
+  // eslint-disable-next-line no-use-before-define
   buildBoard(userUid);
 };
 
