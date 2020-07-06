@@ -10,16 +10,16 @@ const logoutButton = $('#navbar-logout-button');
 const homeDisplayDiv = $('#homeDisplay');
 const pinCardDiv = $('#pinCard');
 const userBoardDiv = $('#userBoard');
-const boardCardDiv = $('#boardCard');
+const singleBoardDiv = $('#single-board');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       authDiv.addClass('hide');
       logoutButton.removeClass('hide');
-      boardCardDiv.removeClass('hide');
       pinCardDiv.removeClass('hide');
       userBoardDiv.removeClass('hide');
+      singleBoardDiv.removeClass('hide');
       homeDisplayDiv.addClass('hide');
       boardList.buildBoard('user1');
       // pinList.buildPinCards();
@@ -28,13 +28,13 @@ const checkLoginStatus = () => {
       authDiv.removeClass('hide');
       homeDisplayDiv.removeClass('hide');
       logoutButton.addClass('hide');
-      boardCardDiv.addClass('hide');
+      singleBoardDiv.addClass('hide');
       pinCardDiv.addClass('hide');
       userBoardDiv.addClass('hide');
 
       home.buildHomePage();
     }
-    console.warn(user);
+    // console.warn(user);
   });
 };
 

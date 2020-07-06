@@ -3,3 +3,15 @@
   height: 100%;
   background-color: darken($color: brown, $amount: 11);
 }
+
+.btnDeletePin {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  color: gray;
+  border-radius: 20px;
+}
+
+.btnDeletePin:hover {
+  color: red;
+}

@@ -29,16 +29,16 @@ const getUserBoardsWithPins = (userId) => new Promise((resolve, reject) => {
       const user = response.data;
       user.id = userId;
       user.boards = [];
-      console.warn('THis is the user uid', user.uid);
+      // console.warn('THis is the user uid', user.uid);
       boardData.getBoardByUid(user.uid)
         .then((userBoards) => {
           pinData.getPinCards()
             .then((pins) => {
-              console.warn('this all pins', pins);
+              // console.warn('this all pins', pins);
               userBoards.forEach((board) => {
-                console.warn('this is only one board object', board.boardTitle);
+                // console.warn('this is only one board object', board.boardTitle);
                 const selectedPins = pins.filter((p) => p.boardId === board.id);
-                console.warn('this is selected pins ', selectedPins);
+                // console.warn('this is selected pins ', selectedPins);
                 selectedPins.boardTitle = board.boardTitle;
                 selectedPins.id = board.id;
                 user.boards.push(selectedPins);
@@ -50,7 +50,23 @@ const getUserBoardsWithPins = (userId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getSingleBoardWithPins, getUserBoardsWithPins };
+const totallyRemoveBoard = (boardId) => new Promise((resolve, reject) => {
+  console.warn('remove start ', boardId);
+  boardData.deletBoard(boardId)
+    .then(() => {
+      // get all mycoMushrooms with mushroomId
+      pinData.getMyPinsByBoardId(boardId).then((pins) => {
+        pins.forEach((pin) => {
+          pinData.deletePin(pin.id);
+        });
+        resolve();
+      });
+      // delete each of tho mycoMushrooms
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getSingleBoardWithPins, getUserBoardsWithPins, totallyRemoveBoard };
 
 /*
 // this function is working below:

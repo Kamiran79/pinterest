@@ -34,8 +34,10 @@ const getMyBoards = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const deletBoard = (boardId) => axios.delete(`${baseUrl}/boards/${boardId}.json`);
+
 // const getBoardByUserUid = (uid) => axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`);
 
-const getBoardById = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`);
+// const getBoardById = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`);
 
-export default { getBoardByUid, getMyBoards, getBoardById };
+export default { getBoardByUid, getMyBoards, deletBoard };
