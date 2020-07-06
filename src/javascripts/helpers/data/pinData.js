@@ -4,7 +4,7 @@ import apiKeys from '../apiKeys.json';
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
 const getPinCards = () => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/pin.json`)
+  axios.get(`${baseUrl}/pins.json`)
     .then((response) => {
       const pinObjects = response.data;
       const pinCards = [];
@@ -18,5 +18,20 @@ const getPinCards = () => new Promise((resolve, reject) => {
     })
     .catch((err) => reject(err));
 });
+// getting my pins for my single board selected!!
+const getMyPinsByBoardId = (boardId) => new Promise((reslove, reject) => {
+  axios.get(`${baseUrl}/pins.json?orderBy="boardId"&equalTo="${boardId}"`)
+    .then((response) => {
+      const pinObjects = response.data;
+      const pins = [];
+      Object.keys(pinObjects).forEach((pinId) => {
+        pinObjects[pinId].id = pinId;
+        pins.push(pinObjects[pinId]);
+      });
 
-export default { getPinCards };
+      reslove(pins);
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getPinCards, getMyPinsByBoardId };

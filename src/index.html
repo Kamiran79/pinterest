@@ -6,33 +6,34 @@
     <title>Pinterest</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand chgFont" href="#">Pinterest</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <button class="nav-link btn btn-danger" id="navbar-logout-button">Logout!</button>
-              <div id="auth">loged in</div>
-            </li>
-          </ul>
-        </div>
-    </nav>    
-    <!-- <button class="btn btn-outline-warning"><i class="fas fa-baby"></i></button> -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark chgFont">
+    <a class="navbar-brand" href="#">Pinterest</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div id="homeDisplay" class="hide"></div>
-    <div class="row">
-        <div class="col-md-8">
-            <div id="pinCard" class="hide"></div>
-            <div id="userBoard" class="hide">userBoard infoCard Saved by y user!!!</div>
-        </div>
-        <div class="col-md-4">
-            <div id="single-pin" class="hide">Single desciption pin show only when you click on that pinCard!!!</div>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <button class="nav-link btn btn-danger" id="navbar-logout-button"><i class="fas fa-sign-out-alt"></i>  Logout</button>
+          <div id="auth">loged in</div>
+        </li>
+      </ul>
     </div>
+  </nav> 
+  <!-- <button class="btn btn-outline-warning"><i class="fas fa-baby"></i></button> -->
+  <!-- <div id="auth">loged in</div> -->
+
+  <div id="homeDisplay" class="chgFont hide"></div>
+  <!--<div id="boardCard" class="hide">
+        <h1 class="text-center">Boards</h1>
+        <div class="d-flex flex-wrap">
+          <div id="boardWithPins" class="col-3"></div>
+        </div> 
+      </div> -->
+  <div id="pinCard" class="hide"></div>
+  <div id="userBoard" class="hide"></div>
+  <div id="single-board" class="hide">Single desciption pin show only when you click on that pinCard!!!</div>
 </body>
 </html>
