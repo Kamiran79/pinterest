@@ -1,11 +1,49 @@
+// just empety string
+
 const boardMaker = (boardWithPins) => {
-  console.warn(boardWithPins.id);
-  boardWithPins.forEach((board) => {
-    console.warn('this is the boardsWithPins ', board.boardId);
+  // console.warn(boardWithPins.id);
+  let imgURL = '';
+  boardWithPins.forEach((pin) => {
+    console.warn('this is the boardsWithPins ', pin.imgURL);
+    if (pin.imgURL !== '') {
+      imgURL = pin.imgURL;
+    }
   });
+  // console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
   let domString = `
     <div class="col-3">
-      <div class="card myco-card border-0 rounded-2 primary" style="width: 18rem;" id=${boardWithPins.id}>
+      <div class="card  mb-3 myco-card border-0 rounded-2 primary" style="width: 18rem;" id=${boardWithPins.id}>        
+        <img src="${imgURL}" class="card-img-top " alt="${boardWithPins.boardTitle}">
+  `;
+  domString += `
+        <div class="card-body">
+          <h5 class="card-title">${boardWithPins.boardTitle}</h5>
+          <p class="card-text">Pins: ${boardWithPins.length}</p>
+          </br>
+          <i id="btnDeleteBoard" class="fas fa-trash-alt btnDeleteBoard1"></i>
+          <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
+        </div>
+      </div>
+    </div>
+  `;
+  // console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
+  // console.warn('get the length of array pins ', boardWithPins.length);
+  // utils.printToDom('#boardWithPins', domString);
+  return domString;
+  // })
+  // .catch((err) => console.error('problem with single mycologist', err));
+  // console.warn('this is what domString have so far ', domString);
+};
+
+// this board maker return 6 images like pinterest to much challenge
+const boardMaker1 = (boardWithPins) => {
+  // console.warn(boardWithPins.id);
+  // boardWithPins.forEach((board) => {
+  // console.warn('this is the boardsWithPins ', board.boardId);
+  // });
+  let domString = `
+    <div class="col-3">
+      <div class="card  mb-3 myco-card border-0 rounded-2 primary" style="width: 18rem;" id=${boardWithPins.id}>
         <div class="row-cols-3">
   `;
   for (let i = 0; i < boardWithPins.length; i += 1) {
@@ -38,7 +76,7 @@ const boardMaker = (boardWithPins) => {
           <h5 class="card-title">${boardWithPins.boardTitle}</h5>
           <p class="card-text">Pins: ${boardWithPins.length}</p>
           </br>
-          <button id="btnDeleteBoard" class="btn btn-danger delete-board btnDeleteBoard1"><i class="fas fa-trash-alt"></i></button>
+          <i id="btnDeleteBoard" class="fas fa-trash-alt btnDeleteBoard1"></i>
           <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
         </div>
       </div>
@@ -53,7 +91,7 @@ const boardMaker = (boardWithPins) => {
   // console.warn('this is what domString have so far ', domString);
 };
 
-export default { boardMaker };
+export default { boardMaker, boardMaker1 };
 // https://www.motortrend.com/uploads/sites/5/2019/09/2019-Mercedes-Benz-A-220-4Matic-front-three-quarter-in-motion-1.jpg?fit=around%7C875:492
 // <h5 class="card-title text-center">${boardWithPins.boardTitle}</h5>
 // below another car image card we will use that later:
@@ -74,3 +112,5 @@ export default { boardMaker };
     </div>
   </div>
 */
+// this is the button delete will used maybe later ..
+// <button id="btnDeleteBoard" class="btn btn-danger delete-board btnDeleteBoard1"><i id="btnDeleteBoard" class="fas fa-trash-alt"></i></button>

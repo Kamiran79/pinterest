@@ -11,6 +11,7 @@ const homeDisplayDiv = $('#homeDisplay');
 const pinCardDiv = $('#pinCard');
 const userBoardDiv = $('#userBoard');
 const singleBoardDiv = $('#single-board');
+const createBoardDiv = $('#create-board');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -20,8 +21,11 @@ const checkLoginStatus = () => {
       pinCardDiv.removeClass('hide');
       userBoardDiv.removeClass('hide');
       singleBoardDiv.removeClass('hide');
+      createBoardDiv.removeClass('hide');
       homeDisplayDiv.addClass('hide');
-      boardList.buildBoard('user1');
+
+      boardList.buildBoard(user.uid);
+      boardList.boardsEvents();
       // pinList.buildPinCards();
       // userList.buildUser(user.uid);
     } else {
@@ -31,6 +35,7 @@ const checkLoginStatus = () => {
       singleBoardDiv.addClass('hide');
       pinCardDiv.addClass('hide');
       userBoardDiv.addClass('hide');
+      createBoardDiv.addClass('hide');
 
       home.buildHomePage();
     }

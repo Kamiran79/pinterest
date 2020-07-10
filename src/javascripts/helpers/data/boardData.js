@@ -20,6 +20,17 @@ const getBoardByUid = (uid) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
+const deletBoard = (boardId) => axios.delete(`${baseUrl}/boards/${boardId}.json`);
+
+const addBoard = (newBoardObj) => axios.post(`${baseUrl}/boards.json`, newBoardObj);
+
+export default { getBoardByUid, deletBoard, addBoard };
+
+// const getBoardByUserUid = (uid) => axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`);
+
+// const getBoardById = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`);
+
+/*
 const getMyBoards = () => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/boards.json`)
     .then((response) => {
@@ -33,11 +44,4 @@ const getMyBoards = () => new Promise((resolve, reject) => {
     })
     .catch((err) => reject(err));
 });
-
-const deletBoard = (boardId) => axios.delete(`${baseUrl}/boards/${boardId}.json`);
-
-// const getBoardByUserUid = (uid) => axios.get(`${baseUrl}/boards.json?orderBy="uid"&equalTo="${uid}"`);
-
-// const getBoardById = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`);
-
-export default { getBoardByUid, getMyBoards, deletBoard };
+*/
