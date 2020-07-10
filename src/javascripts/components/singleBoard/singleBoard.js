@@ -20,9 +20,25 @@ const removePinEvent = (e) => {
     .catch((err) => console.error('could not delete pin', err));
 };
 
+const returnToUserBoards = () => {
+  const userBoardDiv = $('#userBoard');
+  const singleBoardDiv = $('#single-board');
+  userBoardDiv.removeClass('hide');
+  singleBoardDiv.addClass('hide');
+};
+
+const showPinForm = () => {
+  console.warn('this show Pin form working');
+};
+
 const buildSingleBoard = (e) => {
+  // console.warn('excute buildSingleBoard event');
+  console.warn(e.target.id);
+  if (e.target.id === 'btnDeleteBoard') {
+    return;
+  }
   const boardId = e.target.closest('.card').id;
-  console.warn(boardId);
+  // console.warn(boardId);
   trackBoardId = boardId;
   const userBoardDiv = $('#userBoard');
   const singleBoardDiv = $('#single-board');
@@ -31,29 +47,39 @@ const buildSingleBoard = (e) => {
   pinData.getMyPinsByBoardId(boardId)
     .then((myBoardWithPins) => {
       let domString = '<div class="container">';
-      domString += `<h1>${myBoardWithPins[0].category}</h1>`;
-      domString += '<a id ="back" href="#" class="btn btn-outline-warning btnDetails"><i class="fas fa-arrow-circle-left"></i></a>';
-      domString += '<div id="allPins" class="row justify-content-md-center mb-3">';
-      myBoardWithPins.forEach((board) => {
-        console.warn(board);
-        domString += `
-          <div class="col-6 col-md-3 mb-3">
-            <div class="card testcard" id=${board.id}>
-            <img class="card-img-top adj" src="${board.imgURL}" alt="">
-              <div class="card-body p-2">
-                  <h6 class="card-title">${board.pinTitle}</h6>
-                  <p class="card-text testCardText">$${board.category}</p>
-                  <p class="card-text testCardText">${board.description}</p>
-                  <a id ="1" href="#" class="btn btn-outline-warning btnDetails">Details</a>                  
-                  <button class="btn btn-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
+      if (myBoardWithPins.length > 0) {
+        domString += `<h1>${myBoardWithPins[0].category}</h1>`;
+        domString += '<button id="back" class="btn btn-outline-warning btnDetails"><i class="fas fa-arrow-circle-left"></i></button>';
+        // domString += '<a id ="back" href="#" class="btn btn-outline-warning btnDetails"><i class="fas fa-arrow-circle-left"></i></a>';
+        // <i class="far fa-plus-square"></i>
+        domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm"><i class="far fa-plus-square"></i></button>';
+        domString += '<div id="allPins" class="row justify-content-md-center mb-3">';
+        myBoardWithPins.forEach((board) => {
+          console.warn(board);
+          domString += `
+            <div class="col-6 col-md-3 mb-3">
+              <div class="card testcard" id=${board.id}>
+              <img class="card-img-top adj" src="${board.imgURL}" alt="">
+                <div class="card-body p-2">
+                    <h6 class="card-title">${board.pinTitle}</h6>
+                    <p class="card-text testCardText">Topic: ${board.category}</p>
+                    <p class="card-text testCardText">${board.description}</p>
+                    <a id ="1" href="#" class="btn btn-outline-warning btnDetails">Details</a>                  
+                    <button class="btn btn-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
+                </div>
               </div>
             </div>
-          </div>
-        `;
-      });
-      domString += '</div></div>';
+          `;
+        });
+        domString += '</div></div>';
+      } else {
+        domString += '<button id="back" class="btn btn-outline-warning btnDetails"><i class="fas fa-arrow-circle-left"></i></button>';
+        domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm"><i class="far fa-plus-square"></i></button>';
+        domString += '</div>';
+      }
       utils.printToDom('#single-board', domString);
       $('body').on('click', '.btnDeletePin', removePinEvent);
+      $('body').on('click', '#back', returnToUserBoards);
       // console.warn(myBoardWithPins);
     })
     .catch((err) => console.error('problem with single mycologist ', err));
@@ -98,7 +124,7 @@ const buildSingleBoardAfterDeletePin = (id) => {
     .catch((err) => console.error('problem with single mycologist ', err));
 };
 
-export default { buildSingleBoard };
+export default { buildSingleBoard, showPinForm };
 
 // <button class="btn btn-danger delete-shroom"><i class="far fa-trash-alt"></i>  Delete Shroom</button>
 /*
