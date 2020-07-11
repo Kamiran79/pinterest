@@ -24,26 +24,26 @@ const removeBoardEvent = (e) => {
   buildBoard(userUid);
 };
 
-const addShroomEvent = (e) => {
+const addNewBoardEvent = (e) => {
   e.preventDefault();
   const userBoardDiv = $('#userBoard');
   const singleBoardDiv = $('#single-board');
   singleBoardDiv.addClass('hide');
   userBoardDiv.removeClass('hide');
   // console.warn($('#mush-size').val());
-  const newMush = {
-    boardTitle: $('#mush-name').val(),
+  const newBoardvar = {
+    boardTitle: $('#board-name').val(),
     uid: userUid,
   };
-  console.warn(newMush);
+  console.warn(newBoardvar);
 
-  boardData.addBoard(newMush)
+  boardData.addBoard(newBoardvar)
     .then(() => {
       // eslint-disable-next-line no-use-before-define
       buildBoard(userUid);
       utils.printToDom('#create-board', '');
     })
-    .catch((err) => console.error('could not add mushroom', err));
+    .catch((err) => console.error('could not add board', err));
 };
 
 const buildBoard = (uid) => {
@@ -53,7 +53,7 @@ const buildBoard = (uid) => {
       // console.warn(boardsWithPins);
       let domString = `
         <h1 class="text-center">Boards</h1>
-        <button class="btn btn-success ml-3 mb-2" id="show-add-mush"><i class="fas fa-plus-circle"></i> New Board</button>
+        <button class="btn btn-success ml-3 mb-2" id="show-add-board"><i class="fas fa-plus-circle"></i> New Board</button>
         <div class="row d-flex flex-wrap">        
       `;
       boardsWithPins.boards.forEach((board) => {
@@ -77,8 +77,8 @@ const boardsEvents = () => {
   $('body').on('click', '.btnDeleteBoard1', removeBoardEvent);
   // document.querySelector('.btnDeleteBoard1').addEventListener('click', removeBoardEvent);
   $('body').on('click', '.btnDetailsBoard1', singleBoard.buildSingleBoard);
-  $('body').on('click', '#mush-creator', addShroomEvent);
-  $('body').on('click', '#show-add-mush', newBoard.showForm);
+  $('body').on('click', '#board-creator', addNewBoardEvent);
+  $('body').on('click', '#show-add-board', newBoard.showForm);
   $('body').on('click', '.btnShowPinForm', singleBoard.showPinForm);
   // $('body').on('click', '.edit-shroom', showShroomForm);
   // $('body').on('click', '#mush-creator', addShroomEvent);
