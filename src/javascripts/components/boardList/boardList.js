@@ -53,8 +53,8 @@ const buildBoard = (uid) => {
       // console.warn(boardsWithPins);
       let domString = `
         <h1 class="text-center">Boards</h1>
-        <button class="btn btn-success" id="show-add-mush"><i class="fas fa-plus-circle"></i> New Board</button>
-        <div class="d-flex flex-wrap">        
+        <button class="btn btn-success ml-3 mb-2" id="show-add-mush"><i class="fas fa-plus-circle"></i> New Board</button>
+        <div class="row d-flex flex-wrap">        
       `;
       boardsWithPins.boards.forEach((board) => {
         domString += myBoard.boardMaker(board);
@@ -76,7 +76,7 @@ const boardsEvents = () => {
   // $('body').on('click', '.delete-shroom', removeShroomEvent);
   $('body').on('click', '.btnDeleteBoard1', removeBoardEvent);
   // document.querySelector('.btnDeleteBoard1').addEventListener('click', removeBoardEvent);
-  $('body').on('click', '.myco-card', singleBoard.buildSingleBoard);
+  $('body').on('click', '.btnDetailsBoard1', singleBoard.buildSingleBoard);
   $('body').on('click', '#mush-creator', addShroomEvent);
   $('body').on('click', '#show-add-mush', newBoard.showForm);
   $('body').on('click', '.btnShowPinForm', singleBoard.showPinForm);

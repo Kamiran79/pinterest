@@ -1,6 +1,6 @@
 // just empety string
 
-const boardMaker = (boardWithPins) => {
+const boardMaker1 = (boardWithPins) => {
   // console.warn(boardWithPins.id);
   let imgURL = '';
   boardWithPins.forEach((pin) => {
@@ -21,11 +21,13 @@ const boardMaker = (boardWithPins) => {
           <p class="card-text">Pins: ${boardWithPins.length}</p>
           </br>
           <i id="btnDeleteBoard" class="fas fa-trash-alt btnDeleteBoard1"></i>
-          <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
+          <i id="btnDetailsBoard" class="fas fa-info-circle btn btn-warning details-board btnDetailsBoard1"></i>
         </div>
       </div>
     </div>
   `;
+  // below was the buttons for details will replace just with fontAwosem
+  // <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
   // console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
   // console.warn('get the length of array pins ', boardWithPins.length);
   // utils.printToDom('#boardWithPins', domString);
@@ -36,13 +38,14 @@ const boardMaker = (boardWithPins) => {
 };
 
 // this board maker return 6 images like pinterest to much challenge
-const boardMaker1 = (boardWithPins) => {
+const boardMaker = (boardWithPins) => {
   // console.warn(boardWithPins.id);
   // boardWithPins.forEach((board) => {
   // console.warn('this is the boardsWithPins ', board.boardId);
   // });
   let domString = `
-    <div class="col-3">
+  <div class="col-12 col-md-3">
+  <div class="d-flex flex-wrap justify-content-center">
       <div class="card  mb-3 myco-card border-0 rounded-2 primary" style="width: 18rem;" id=${boardWithPins.id}>
         <div class="row-cols-3">
   `;
@@ -78,6 +81,7 @@ const boardMaker1 = (boardWithPins) => {
           </br>
           <i id="btnDeleteBoard" class="fas fa-trash-alt btnDeleteBoard1"></i>
           <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
+        </div>
         </div>
       </div>
     </div>
