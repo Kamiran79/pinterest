@@ -2,11 +2,11 @@
 import smash from '../../helpers/data/smash';
 import myBoard from '../board/board';
 import utils from '../../helpers/utils';
-import singleBoard from '../singleBoard/singleBoard';
 
 import './boardList.scss';
 import boardData from '../../helpers/data/boardData';
 import newBoard from '../newBoard/newBoard';
+import singleBoard from '../singleBoard/singleBoard';
 
 let userUid;
 
@@ -48,11 +48,13 @@ const addNewBoardEvent = (e) => {
 
 const buildBoard = (uid) => {
   userUid = uid;
+  // eslint-disable-next-line no-undef
+  // console.warn($(elemUid).data());
   smash.getUserBoardsWithPins(uid)
     .then((boardsWithPins) => {
       // console.warn(boardsWithPins);
       let domString = `
-        <h1 class="text-center">Boards</h1>
+        <h1 id="userUid" data-uid="${uid}" class="text-center">Boards</h1>
         <button class="btn btn-success ml-3 mb-2" id="show-add-board"><i class="fas fa-plus-circle"></i> New Board</button>
         <div class="row d-flex flex-wrap">        
       `;
