@@ -45,7 +45,7 @@ const returnToUserBoards = () => {
   // utils.printToDom('#allPins', '');
 };
 
-const showPinForm = () => {
+const AddNewPin = () => {
   console.warn('this show Pin form working');
 };
 
@@ -152,7 +152,7 @@ const buildSingleBoardAfterDeletePin = (id) => {
     .catch((err) => console.error('problem with single mycologist ', err));
 };
 
-export default { buildSingleBoard, showPinForm };
+export default { buildSingleBoard, AddNewPin };
 
 // <button class="btn btn-danger delete-shroom"><i class="far fa-trash-alt"></i>  Delete Shroom</button>
 /*

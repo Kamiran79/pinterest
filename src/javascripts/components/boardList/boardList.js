@@ -7,6 +7,7 @@ import './boardList.scss';
 import boardData from '../../helpers/data/boardData';
 import newBoard from '../newBoard/newBoard';
 import singleBoard from '../singleBoard/singleBoard';
+import newPin from '../newPin/newPin';
 
 let userUid;
 
@@ -81,7 +82,7 @@ const boardsEvents = () => {
   $('body').on('click', '.btnDetailsBoard1', singleBoard.buildSingleBoard);
   $('body').on('click', '#board-creator', addNewBoardEvent);
   $('body').on('click', '#show-add-board', newBoard.showForm);
-  $('body').on('click', '.btnShowPinForm', singleBoard.showPinForm);
+  $('body').on('click', '.btnShowPinForm', newPin.showPinForm);
   // $('body').on('click', '.edit-shroom', showShroomForm);
   // $('body').on('click', '#mush-creator', addShroomEvent);
   // $('body').on('click', '#mush-editor', editShroomEvent);
