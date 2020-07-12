@@ -72,6 +72,8 @@ const buildSingleBoard = (e) => {
           </div>
         `;
       });
+      // this below the line was buttons will try to change it
+      // <button class="btn btn-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
       domString += '</div></div>';
       // } else {
       // domString += `<h1>${myBoardWithPins[0].category}</h1>`;
