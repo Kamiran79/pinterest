@@ -3,6 +3,7 @@ import utils from '../../helpers/utils';
 
 import './singleBoard.scss';
 import smash from '../../helpers/data/smash';
+// import boardList from '../boardList/boardList';
 
 let trackBoardId;
 
@@ -20,13 +21,27 @@ const removePinEvent = (e) => {
     })
     .catch((err) => console.error('could not delete pin', err));
 };
+/*
+HTML
+<div id="mydiv" data-myval="10"></div>
+
+JS
+var a = $('#mydiv').data('myval'); //getter
+
+$('#mydiv').data('myval',20); //setter
+
+*/
 
 const returnToUserBoards = () => {
+  // utils.printToDom('#userBoard', '');
+  // const uidBySingleBoard = $('#storeUserUid').data('uidStored');
+  // console.warn(uidBySingleBoard);
   const userBoardDiv = $('#userBoard');
   const singleBoardDiv = $('#single-board');
   userBoardDiv.removeClass('hide');
   utils.printToDom('#clearSingleBoard', '');
   singleBoardDiv.addClass('hide');
+  // boardList.buildBoard(uidBySingleBoard);
   // utils.printToDom('#allPins', '');
 };
 
@@ -59,19 +74,23 @@ const buildSingleBoard = (e) => {
       domString += '<button id="back" class="btn btn-outline-warning btnDetails m-1"><i class="fas fa-arrow-circle-left"></i></button>';
       // domString += '<a id ="back" href="#" class="btn btn-outline-warning btnDetails"><i class="fas fa-arrow-circle-left"></i></a>';
       // <i class="far fa-plus-square"></i>
-      domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm m-1"><i class="far fa-plus-square"></i></button>';
+      domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm m-1"><i class="far fa-plus-square"></i> Add New Pin</button>';
       domString += '<div id="allPins" class="row justify-content-md-center mb-3">';
       myBoardWithPins.pins.forEach((pin) => {
         console.warn(pin);
+        // btnLinkToPin
         domString += `
           <div class="border-0 m-2">
             <div class="card border-0 pin-card hoverEffect align-self-start m-2" id=${pin.id}>
             <img class="card-img-top adj" src="${pin.imgURL}" alt="">
-            <button class="btn btn-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-warning btnLinkToPin"><i class="fas fa-external-link-alt"></i></button>
             </div>
           </div>
         `;
       });
+      // this below the line was buttons will try to change it
+      // <button class="btn btn-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
       domString += '</div></div>';
       // } else {
       // domString += `<h1>${myBoardWithPins[0].category}</h1>`;
