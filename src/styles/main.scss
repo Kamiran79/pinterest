@@ -51,11 +51,17 @@ body {
   -webkit-filter: none;
   filter: none;
   }
-  .card-img-top {
+  .card-img-top1 {
     width: 90px;
     object-fit: cover;
     object-position: top;
     margin-bottom: 2px;
+}
+
+.card-img-top {
+  width: 300px;  
+  object-position: top;
+  border-radius: 20px;
 }
 
 .right-side {
