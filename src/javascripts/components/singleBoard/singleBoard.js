@@ -3,6 +3,7 @@ import utils from '../../helpers/utils';
 
 import './singleBoard.scss';
 import smash from '../../helpers/data/smash';
+import singlePin from '../singlePin/singlePin';
 // import boardList from '../boardList/boardList';
 
 let trackBoardId;
@@ -49,6 +50,11 @@ const AddNewPin = () => {
   console.warn('this show Pin form working');
 };
 
+// const showPinEvent = () => {
+//  console.warn('access to show pin need build single pin');
+// singlePin.buildSinglePin(e);
+// };
+
 const buildSingleBoard = (e) => {
   // console.warn('excute buildSingleBoard event');
   e.preventDefault();
@@ -82,7 +88,7 @@ const buildSingleBoard = (e) => {
         domString += `
           <div class="border-0 m-2">
             <div class="card border-0 pin-card hoverEffect align-self-start m-2" id=${pin.id}>
-            <img class="card-img-top adj" src="${pin.imgURL}" alt="">
+            <img id="${pin.id}" class="card-img-top adj showPin" src="${pin.imgURL}" alt="">
             <button class="btn btn-outline-danger delete-pin btnDeletePin"><i class="fas fa-trash-alt"></i></button>
             <button class="btn btn-outline-warning btnLinkToPin"><i class="fas fa-external-link-alt"></i></button>
             </div>
@@ -101,6 +107,7 @@ const buildSingleBoard = (e) => {
       utils.printToDom('#single-board', domString);
       $('body').on('click', '.btnDeletePin', removePinEvent);
       $('body').on('click', '#back', returnToUserBoards);
+      $('body').on('click', '.showPin', singlePin.buildSinglePin);
       // console.warn(myBoardWithPins);
       // <div class="card-body p-2">
       // <h6 class="card-title">${board.pinTitle}</h6>
