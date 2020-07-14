@@ -16,8 +16,8 @@ const showPinForm = () => {
           <label for="board-name">Board Title:</label>
           <input type="text" class="form-control" id="board-name" placeholder="i.e. My Cars Collections">
         </div>
-        <button type="submit" class="btn btn-primary" id="board-creator">Submit</button>
-        <button type="cancel" class="btn btn-primary" id="backToMainBoards">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="board-creator1">Submit</button>
+        <button type="cancel" class="btn btn-primary" id="backToMainBoards1">Cancel</button>
       </form>
     </div>
   `;
