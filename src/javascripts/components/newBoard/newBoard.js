@@ -18,7 +18,7 @@ const showForm = () => {
     </div>
   `;
 
-  utils.printToDom('#create-board', domString);
+  utils.printToDom('#console', domString);
 };
 
 export default { showForm };

@@ -1,3 +1,6 @@
+// import firebase from 'firebase/app';
+import 'firebase/auth';
+
 // import boardData from '../../helpers/data/boardData';
 import smash from '../../helpers/data/smash';
 import myBoard from '../board/board';
@@ -51,21 +54,24 @@ const buildBoard = (uid) => {
   userUid = uid;
   // eslint-disable-next-line no-undef
   // console.warn($(elemUid).data());
+  // const userId = firebase.auth().currentUser.uid;
+  // console.warn('this is the user id: ', userId);
   smash.getUserBoardsWithPins(uid)
     .then((boardsWithPins) => {
-      // console.warn(boardsWithPins);
+      // console.warn('this is a board with Pins', boardsWithPins);
       let domString = `
         <h1 id="userUid" data-uid="${uid}" class="text-center">Boards</h1>
         <button class="btn btn-success ml-3 mb-2" id="show-add-board"><i class="fas fa-plus-circle"></i> New Board</button>
         <div class="row d-flex flex-wrap">        
       `;
-      boardsWithPins.boards.forEach((board) => {
-        domString += myBoard.boardMaker(board);
-      });
-
+      if (boardsWithPins.length !== 0) {
+        boardsWithPins.boards.forEach((board) => {
+          domString += myBoard.boardMaker(board);
+        });
+      }
       domString += '<div>';
 
-      utils.printToDom('#userBoard', domString);
+      utils.printToDom('#console', domString);
       // $('body').one('click', '.btnDeleteBoard1', removeBoardEvent);
       // $('.btnDeleteBoard1').click(removeBoardEvent);
       // $('body').on('click', '.myco-card', singleBoard.buildSingleBoard);

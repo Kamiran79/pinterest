@@ -9,9 +9,11 @@ const signMeIn = () => {
 };
 
 const loginButton = () => {
-  const domString = '<button id="google-auth" class="btn btn-warning"><i class="fab fa-google-plus"></i> LOG ME IN!!!</button>';
+  const domString = '<button id="google-auth" class="btn btn-warning"><i class="fab fa-google-plus"></i> LOGIN</button>';
   utils.printToDom('#auth', domString);
   $('#google-auth').click(signMeIn);
 };
 
-export default { loginButton };
+const getUser = () => firebase.auth().currentUser;
+
+export default { loginButton, getUser };

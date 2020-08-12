@@ -2,26 +2,26 @@
   "g9mafEXLpiNQ83gs1hqE7DQMnRv1": {
     "uid": "g9mafEXLpiNQ83gs1hqE7DQMnRv1",
     "name": "Kamiran",
-    "age": "30"
+    "photoURL": "https://image.flaticon.com/icons/png/512/16/16480.png"
   },
   "user2": {
     "uid": "7333717",
     "name": "Nikhil",
-    "age": "31"    
+    "photoURL": "https://image.flaticon.com/icons/png/512/16/16480.png"    
   },
   "user3": {
     "uid": "84444818",
     "name": "Geno",
-    "age": "45"    
+    "photoURL": "https://image.flaticon.com/icons/png/512/16/16480.png"    
   },
   "user4": {
     "uid": "622616",
     "name": "Shawn Garrison",
-    "age": "26"    
+    "photoURL": "https://image.flaticon.com/icons/png/512/16/16480.png"    
   },  
   "user5": {
     "uid": "955555919",
     "name": "newUser",
-    "age": "100"    
+    "photoURL": "https://image.flaticon.com/icons/png/512/16/16480.png"    
   }      
 }
