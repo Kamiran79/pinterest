@@ -26,11 +26,6 @@ const boardMaker1 = (boardWithPins) => {
       </div>
     </div>
   `;
-  // below was the buttons for details will replace just with fontAwosem
-  // <button id="btnDetailsBoard" class="btn btn-warning details-board btnDetailsBoard1"><i class="fas fa-info-circle"></i></button>
-  // console.warn('this is the boardsWithPins ', boardWithPins[0].imgURL);
-  // console.warn('get the length of array pins ', boardWithPins.length);
-  // utils.printToDom('#boardWithPins', domString);
   return domString;
   // })
   // .catch((err) => console.error('problem with single mycologist', err));

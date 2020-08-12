@@ -14,7 +14,7 @@ const buildPinCards = () => {
         domString += pinComponent.pinMaker(pin);
       });
       domString += '</div>';
-      utils.printToDom('#pinCard', domString);
+      utils.printToDom('#console', domString);
     })
     .catch((err) => console.error('get pinCards broke :/', err));
 };

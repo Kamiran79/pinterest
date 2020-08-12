@@ -27,7 +27,7 @@ const buildSinglePin = (e) => {
         </div>
       `;
 
-      utils.printToDom('#single-board', domString);
+      utils.printToDom('#console', domString);
     })
     .catch((err) => console.error('get pin faild ', err));
 };

@@ -4,6 +4,8 @@ import utils from '../../helpers/utils';
 import './singleBoard.scss';
 import smash from '../../helpers/data/smash';
 import singlePin from '../singlePin/singlePin';
+import returnToMainBoards from './returnToMainBoards';
+
 // import boardList from '../boardList/boardList';
 
 let trackBoardId;
@@ -32,7 +34,7 @@ var a = $('#mydiv').data('myval'); //getter
 $('#mydiv').data('myval',20); //setter
 
 */
-
+/*
 const returnToUserBoards = () => {
   // utils.printToDom('#userBoard', '');
   // const uidBySingleBoard = $('#storeUserUid').data('uidStored');
@@ -45,7 +47,7 @@ const returnToUserBoards = () => {
   // boardList.buildBoard(uidBySingleBoard);
   // utils.printToDom('#allPins', '');
 };
-
+*/
 const AddNewPin = () => {
   console.warn('this show Pin form working');
 };
@@ -58,13 +60,13 @@ const AddNewPin = () => {
 const buildSingleBoard = (e) => {
   // console.warn('excute buildSingleBoard event');
   e.preventDefault();
-  console.warn(e.target.id);
-  console.warn(e.target.dataset.boardTitle);
+  // console.warn(e.target.id);
+  // console.warn(e.target.dataset.boardTitle);
   if (e.target.id === 'btnDeleteBoard') {
     return;
   }
   const boardId = e.target.closest('.card').id;
-  console.warn(boardId);
+  // console.warn(boardId);
   trackBoardId = boardId;
   const userBoardDiv = $('#userBoard');
   const singleBoardDiv = $('#single-board');
@@ -73,7 +75,7 @@ const buildSingleBoard = (e) => {
   // pinData.getMyPinsByBoardId(boardId)
   smash.getSingleBoardWithPins(boardId)
     .then((myBoardWithPins) => {
-      console.warn('this new object by smash: ', myBoardWithPins.boardTitle);
+      // console.warn('this new object by smash: ', myBoardWithPins.boardTitle);
       let domString = '<div id="clearSingleBoard" class="container">';
       // if (myBoardWithPins.length > 0) {
       domString += `<h1>${myBoardWithPins.boardTitle}</h1>`;
@@ -83,7 +85,7 @@ const buildSingleBoard = (e) => {
       domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm m-1"><i class="far fa-plus-square"></i> Add New Pin</button>';
       domString += '<div id="allPins" class="row justify-content-md-center mb-3">';
       myBoardWithPins.pins.forEach((pin) => {
-        console.warn(pin);
+        // console.warn(pin);
         // btnLinkToPin
         domString += `
           <div class="border-0 m-2">
@@ -104,9 +106,9 @@ const buildSingleBoard = (e) => {
       // domString += '<button id="addPin" class="btn btn-outline-success btnShowPinForm"><i class="far fa-plus-square"></i></button>';
       // domString += '</div>';
       // }
-      utils.printToDom('#single-board', domString);
+      utils.printToDom('#console', domString);
       $('body').on('click', '.btnDeletePin', removePinEvent);
-      $('body').on('click', '#back', returnToUserBoards);
+      $('body').on('click', '#back', returnToMainBoards.returnToUserBoards);
       $('body').on('click', '.showPin', singlePin.buildSinglePin);
       // console.warn(myBoardWithPins);
       // <div class="card-body p-2">
@@ -152,7 +154,7 @@ const buildSingleBoardAfterDeletePin = (id) => {
         `;
       });
       domString += '</div></div>';
-      utils.printToDom('#single-board', domString);
+      utils.printToDom('#console', domString);
       $('body').on('click', '.btnDeletePin', removePinEvent);
       // console.warn(myBoardWithPins);
     })
